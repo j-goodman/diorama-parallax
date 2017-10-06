@@ -1,0 +1,25 @@
+body {
+  height: 1880px;
+}
+
+#canvas {
+  background: #87e;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: auto;
+}
+
+.content {
+  color: #fff;
+  font-family: monospace;
+  font-size: 20px;
+  height: 100%;
+  left: 0;
+  line-height: 72px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
