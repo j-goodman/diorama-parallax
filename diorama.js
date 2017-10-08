@@ -33,8 +33,8 @@ function initialize () {
       new Cutout ({
         name: 'manhattan',
         anchor: {
-          x: -1200,
-          y: 786,
+          x: -700,
+          y: 620,
           z: 100,
         },
         imageSource: 'images/manhattan.png',
