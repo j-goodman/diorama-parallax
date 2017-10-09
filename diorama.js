@@ -10,16 +10,20 @@ function initialize () {
   onkeydown = function (event) {
     switch (event.keyCode) {
       case 37: // left
-        window.sidescroll -= 50;
+        if (window.sidescroll > -2000) {
+          window.sidescroll -= 50;
+        }
         break;
       case 39: // right
-        window.sidescroll += 50;
+        if (window.sidescroll < 1850) {
+          window.sidescroll += 50;
+        }
         break;
       case 65: // a
         window.sidescroll = -2000;
         break;
       case 68: // d
-        window.sidescroll = 2000;
+        window.sidescroll = 1850;
         break;
       case 83: // d
         window.sidescroll = 0;
@@ -34,7 +38,7 @@ function initialize () {
         name: 'manhattan',
         anchor: {
           x: -700,
-          y: 620,
+          y: 720,
           z: 100,
         },
         imageSource: 'images/manhattan.png',
@@ -45,11 +49,22 @@ function initialize () {
         name: 'brooklyn',
         anchor: {
           x: -598,
-          y: 1172,
+          y: 1270,
           z: 0,
         },
         imageSource: 'images/brooklyn.png',
         width: 4500,
+        height: 'auto',
+      }),
+      new Cutout ({
+        name: 'ridgewood',
+        anchor: {
+          x: 1480,
+          y: 1200,
+          z: 60,
+        },
+        imageSource: 'images/ridgewood.png',
+        width: 1650,
         height: 'auto',
       }),
       new Cutout ({
