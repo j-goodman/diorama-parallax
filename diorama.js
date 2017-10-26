@@ -37,8 +37,8 @@ function initialize () {
       new Cutout ({
         name: 'manhattan',
         anchor: {
-          x: -700,
-          y: 720,
+          x: -1080,
+          y: 700,
           z: 100,
         },
         imageSource: 'images/manhattan.png',
@@ -49,7 +49,7 @@ function initialize () {
         name: 'brooklyn',
         anchor: {
           x: -598,
-          y: 1270,
+          y: 950,
           z: 0,
         },
         imageSource: 'images/brooklyn.png',
@@ -57,21 +57,43 @@ function initialize () {
         height: 'auto',
       }),
       new Cutout ({
+        name: 'williamsburg',
+        anchor: {
+          x: 480,
+          y: 1140,
+          z: 59,
+        },
+        imageSource: 'images/williamsburg.png',
+        width: 1100,
+        height: 'auto',
+      }),
+      new Cutout ({
+        name: 'warehouse',
+        anchor: {
+          x: 2240,
+          y: 1260,
+          z: 27,
+        },
+        imageSource: 'images/warehouse.png',
+        width: 1300,
+        height: 'auto',
+      }),
+      new Cutout ({
         name: 'ridgewood',
         anchor: {
-          x: 1480,
-          y: 1200,
+          x: 1650,
+          y: 870,
           z: 60,
         },
         imageSource: 'images/ridgewood.png',
-        width: 1650,
+        width: 1450,
         height: 'auto',
       }),
       new Cutout ({
         name: 'boathouse',
         anchor: {
           x: -1700,
-          y: 1324,
+          y: 1044,
           z: 25,
         },
         imageSource: 'images/boathouse.png',
@@ -81,8 +103,8 @@ function initialize () {
       new Cutout ({
         name: 'tunnel',
         anchor: {
-          x: -1400,
-          y: 890,
+          x: -1340,
+          y: 600,
           z: 60,
         },
         imageSource: 'images/tunnel.png',
@@ -137,6 +159,7 @@ Diorama.prototype.draw = function () {
 
 function Cutout (obj) {
   this.anchor = obj.anchor;
+  this.name = obj.name;
   this.image = document.createElement('img');
   this.image.src = obj.imageSource;
   this.width = obj.width;

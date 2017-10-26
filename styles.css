@@ -1,5 +1,5 @@
 body {
-  height: 1880px;
+  height: 1600px;
 }
 
 #canvas {
@@ -12,14 +12,9 @@ body {
 }
 
 .content {
-  color: #fff;
-  font-family: monospace;
-  font-size: 20px;
   height: 100%;
   left: 0;
-  line-height: 72px;
   position: absolute;
-  text-align: center;
   top: 0;
   width: 100%;
 }
