@@ -1,29 +1,29 @@
 window.onload = initialize;
+var diorama;
 
 function initialize () {
   var canvas;
   var ctx;
-  var diorama;
   var image;
 
   window.sidescroll = 0;
   onkeydown = function (event) {
     switch (event.keyCode) {
       case 37: // left
-        if (window.sidescroll > -2000) {
-          window.sidescroll -= 50;
+        if (window.sidescroll > -1960) {
+          window.sidescroll -= 40;
         }
         break;
       case 39: // right
-        if (window.sidescroll < 1850) {
-          window.sidescroll += 50;
+        if (window.sidescroll < 1740) {
+          window.sidescroll += 40;
         }
         break;
       case 65: // a
-        window.sidescroll = -2000;
+        window.sidescroll = -1960;
         break;
       case 68: // d
-        window.sidescroll = 1850;
+        window.sidescroll = 1760;
         break;
       case 83: // d
         window.sidescroll = 0;
@@ -38,18 +38,40 @@ function initialize () {
         name: 'manhattan',
         anchor: {
           x: -1080,
-          y: 700,
-          z: 100,
+          y: 820,
+          z: 120,
         },
         imageSource: 'images/manhattan.png',
         width: 4500,
         height: 'auto',
       }),
       new Cutout ({
+        name: 'greenwood',
+        anchor: {
+          x: -700,
+          y: 1310,
+          z: 90,
+        },
+        imageSource: 'images/greenwood.png',
+        width: 1600,
+        height: 'auto',
+      }),
+      new Cutout ({
+        name: 'bayridge',
+        anchor: {
+          x: -680,
+          y: 1000,
+          z: 100,
+        },
+        imageSource: 'images/bayridge.png',
+        width: 1160,
+        height: 'auto',
+      }),
+      new Cutout ({
         name: 'brooklyn',
         anchor: {
           x: -598,
-          y: 950,
+          y: 1226,
           z: 0,
         },
         imageSource: 'images/brooklyn.png',
@@ -60,8 +82,8 @@ function initialize () {
         name: 'williamsburg',
         anchor: {
           x: 480,
-          y: 1140,
-          z: 59,
+          y: 1400,
+          z: 60,
         },
         imageSource: 'images/williamsburg.png',
         width: 1100,
@@ -71,8 +93,8 @@ function initialize () {
         name: 'warehouse',
         anchor: {
           x: 2240,
-          y: 1260,
-          z: 27,
+          y: 1550,
+          z: 40,
         },
         imageSource: 'images/warehouse.png',
         width: 1300,
@@ -82,8 +104,8 @@ function initialize () {
         name: 'ridgewood',
         anchor: {
           x: 1650,
-          y: 870,
-          z: 60,
+          y: 1180,
+          z: 70,
         },
         imageSource: 'images/ridgewood.png',
         width: 1450,
@@ -93,8 +115,8 @@ function initialize () {
         name: 'boathouse',
         anchor: {
           x: -1700,
-          y: 1044,
-          z: 25,
+          y: 1450,
+          z: 30,
         },
         imageSource: 'images/boathouse.png',
         width: 2400,
@@ -104,7 +126,7 @@ function initialize () {
         name: 'tunnel',
         anchor: {
           x: -1340,
-          y: 600,
+          y: 950,
           z: 60,
         },
         imageSource: 'images/tunnel.png',
@@ -138,13 +160,12 @@ Diorama.prototype.draw = function () {
     x: scroll.x / 2000,
     y: scroll.y / (document.body.scrollHeight - window.innerHeight),
   };
-  // scroll.
   this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   for (i=0 ; i<this.cutouts.length ; i++) {
     cutout = this.cutouts[i];
-    if (cutout.height === 'auto') {
+    if (cutout.height === 'auto' && cutout.image.height !== 0) {
       cutout.height = cutout.width * (cutout.image.height / cutout.image.width);
-    } else if (cutout.width === 'auto') {
+    } else if (cutout.width === 'auto' && cutout.image.width !== 0) {
       cutout.width = cutout.height * (cutout.image.width / cutout.image.height);
     }
     this.ctx.drawImage(
@@ -161,6 +182,9 @@ function Cutout (obj) {
   this.anchor = obj.anchor;
   this.name = obj.name;
   this.image = document.createElement('img');
+  this.image.onload = function () {
+    diorama.draw();
+  }.bind(this);
   this.image.src = obj.imageSource;
   this.width = obj.width;
   this.height = obj.height;
