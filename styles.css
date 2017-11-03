@@ -1,5 +1,10 @@
 body {
+  align-items: center;
+  background-color: #000;
+  display: flex;
+  font-family: 'Roboto', sans-serif;
   height: 1860px;
+  justify-content: center;
 }
 
 #canvas {
@@ -11,10 +16,135 @@ body {
   width: auto;
 }
 
-.content {
+.CONTENT {
   height: 100%;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
+}
+
+h1, h2, div, p {
+  align-items: center;
+  background-color: rgba(0,0,0,0.8);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+h1, h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Oswald', sans-serif;
+  font-size: 80px;
+  height: 120px;
+  text-transform: uppercase;
+  width: 600px;
+}
+
+h1 {
+  width: 640px;
+  word-spacing: 56px;
+}
+
+.title {
+  margin-top: 160px;
+}
+
+.subtitle {
+  margin-top: 8px;
+}
+
+.enter {
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 60px;
+  margin-top: 48px;
+  transform: translateY(0);
+  transition: background-color .2s, transform .2s;
+  width: 60px;
+}
+
+.arrow {
+  border: solid rgba(255,255,255,0.8);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  height: 16px;
+  padding: 3px;
+  transform: rotate(45deg) translate(-3.2px, -3.2px);
+  width: 16px;
+  -webkit-transform: rotate(45deg) translate(-3.2px, -3.2px);
+}
+
+.enter:hover {
+  background-color: rgba(0,0,0,0.36);
+  transform: translateY(-1.2px);
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
+.landing-page {
+  margin: 700px auto 0 auto;
+  width: 74%;
+}
+
+.upper-part {
+  height: 490px;
+}
+
+.lower-part {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.about-us, .past-projects {
+  cursor: pointer;
+  font-size: 42px;
+  height: 90px;
+  transition: background .2s;
+}
+
+.about-us:hover, .past-projects:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.about-us {
+  margin-left: 32px;
+}
+
+.past-projects {
+  margin-right: 32px;
+}
+
+.current-project {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  line-height: 34px;
+  padding: 50px;
+  word-spacing: 2px;
+  width: 100%;
+}
+
+.current-project > div {
+  background: none;
+  display: flex;
+  flex-direction: column;
+  height: 86%;
+  overflow: hidden;
+  width: 46%;
+}
+
+.current-project > div > p {
+  background: none;
+}
+
+.current-project > div > img {
+  height: 100%;
 }

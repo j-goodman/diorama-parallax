@@ -37,33 +37,33 @@ function initialize () {
       new Cutout ({
         name: 'manhattan',
         anchor: {
-          x: -1080,
-          y: 820,
+          x: -1300,
+          y: 760,
           z: 120,
         },
-        imageSource: 'images/manhattan.png',
+        imageSource: 'images/background/manhattan.png',
         width: 4500,
         height: 'auto',
       }),
       new Cutout ({
         name: 'greenwood',
         anchor: {
-          x: -700,
+          x: -760,
           y: 1310,
           z: 90,
         },
-        imageSource: 'images/greenwood.png',
+        imageSource: 'images/background/greenwood.png',
         width: 1600,
         height: 'auto',
       }),
       new Cutout ({
         name: 'bayridge',
         anchor: {
-          x: -680,
+          x: -820,
           y: 1000,
           z: 100,
         },
-        imageSource: 'images/bayridge.png',
+        imageSource: 'images/background/bayridge.png',
         width: 1160,
         height: 'auto',
       }),
@@ -74,7 +74,7 @@ function initialize () {
           y: 1226,
           z: 0,
         },
-        imageSource: 'images/brooklyn.png',
+        imageSource: 'images/background/brooklyn.png',
         width: 4500,
         height: 'auto',
       }),
@@ -85,7 +85,7 @@ function initialize () {
           y: 1400,
           z: 60,
         },
-        imageSource: 'images/williamsburg.png',
+        imageSource: 'images/background/williamsburg.png',
         width: 1100,
         height: 'auto',
       }),
@@ -96,7 +96,7 @@ function initialize () {
           y: 1550,
           z: 40,
         },
-        imageSource: 'images/warehouse.png',
+        imageSource: 'images/background/warehouse.png',
         width: 1300,
         height: 'auto',
       }),
@@ -107,7 +107,7 @@ function initialize () {
           y: 1180,
           z: 70,
         },
-        imageSource: 'images/ridgewood.png',
+        imageSource: 'images/background/ridgewood.png',
         width: 1450,
         height: 'auto',
       }),
@@ -118,18 +118,18 @@ function initialize () {
           y: 1450,
           z: 30,
         },
-        imageSource: 'images/boathouse.png',
+        imageSource: 'images/background/boathouse.png',
         width: 2400,
         height: 'auto',
       }),
       new Cutout ({
         name: 'tunnel',
         anchor: {
-          x: -1340,
+          x: -1420,
           y: 950,
           z: 60,
         },
-        imageSource: 'images/tunnel.png',
+        imageSource: 'images/background/tunnel.png',
         width: 2200,
         height: 'auto',
       }),
@@ -176,6 +176,8 @@ Diorama.prototype.draw = function () {
       cutout.height
     );
   }
+  document.getElementsByClassName('subtitle')[0].style.transform =
+  'translateY(' + (offset.y * 70) + 'px)';
 };
 
 function Cutout (obj) {
