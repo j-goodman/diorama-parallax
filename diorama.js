@@ -11,12 +11,12 @@ function initialize () {
     switch (event.keyCode) {
       case 37: // left
         if (window.sidescroll > -1960) {
-          window.sidescroll -= 40;
+          window.sidescroll -= 20;
         }
         break;
       case 39: // right
         if (window.sidescroll < 1740) {
-          window.sidescroll += 40;
+          window.sidescroll += 20;
         }
         break;
       case 65: // a
@@ -134,6 +134,20 @@ function initialize () {
         height: 'auto',
       }),
     ],
+    htmlElements: [
+      new HtmlElement ({
+        htmlElement: document.getElementsByClassName('landing-page')[0],
+        depth: 3,
+      }),
+      new HtmlElement ({
+        htmlElement: document.getElementsByClassName('left-page')[0],
+        depth: 0,
+      }),
+      new HtmlElement ({
+        htmlElement: document.getElementsByClassName('right-page')[0],
+        depth: 6,
+      }),
+    ]
   });
 
   diorama.draw();
@@ -145,6 +159,7 @@ function Diorama (obj) {
   this.cutouts = obj.cutouts.sort(function (x, y) {
     return x.anchor.z > y.anchor.z ? -1 : 1;
   });
+  this.htmlElements = obj.htmlElements;
   this.canvas = document.getElementById(obj.canvasId);
   this.ctx = this.canvas.getContext('2d');
 }
@@ -176,8 +191,15 @@ Diorama.prototype.draw = function () {
       cutout.height
     );
   }
+  this.moveHtml(offset);
+};
+
+Diorama.prototype.moveHtml = function (offset) {
   document.getElementsByClassName('subtitle')[0].style.transform =
-  'translateY(' + (offset.y * 70) + 'px)';
+  'translateY(' + (offset.y * 90) + 'px)';
+  this.htmlElements.map(function (el) {
+    el.style.transform = 'translate(' + (offset.x * -1600) + 'px, 0)';
+  });
 };
 
 function Cutout (obj) {
@@ -190,4 +212,10 @@ function Cutout (obj) {
   this.image.src = obj.imageSource;
   this.width = obj.width;
   this.height = obj.height;
+}
+
+function HtmlElement (obj) {
+  this.self = obj.htmlElement;
+  this.style = obj.htmlElement.style;
+  this.depth = obj.depth;
 }
