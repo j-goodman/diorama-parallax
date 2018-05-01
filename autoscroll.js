@@ -25,7 +25,7 @@ function scrollToBottom () {
     }, 25);
     window.addEventListener('wheel', window.clearInterval.bind(null, interval));
 }
-// 
+//
 // function scrollToSide (direction/* 1 or -1 */, drawFunction) {
 //   var distance; var increment; var interval; var staticIncrement; var target;
 //   var frames = 70;

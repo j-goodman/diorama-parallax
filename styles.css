@@ -40,12 +40,15 @@ h1, h2 {
   font-size: 80px;
   height: 120px;
   text-transform: uppercase;
-  width: 600px;
+  width: 700px;
 }
 
 h1 {
-  width: 640px;
-  word-spacing: 56px;
+  width: 850px;
+}
+
+h2 {
+  word-spacing: 14px;
 }
 
 .title {
