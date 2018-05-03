@@ -91,25 +91,21 @@ h1.title, h2.subtitle {
   transform: translateY(-1.2px);
 }
 
-.main-row {
-  align-items: center;
-  bottom: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  overflow-x: hidden;
-  position: absolute;
-  transform: translateX(-33.3%);
-  width: 300%;
-}
-
 p {
   font-family: 'Roboto', sans-serif;
 }
 
-.landing-page, .left-page, .right-page {
-  margin: 700px 5.5% 0 5.5%;
-  width: 26%;
+.page-content {
+  align-items: flex-start;
+  background: rgba(0,0,0,.6);
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  margin: 0 5% 0 5%;
+  margin-top: 800px;
+  position: absolute;
+  width: 90%;
 }
 
 .upper-part {
@@ -121,42 +117,4 @@ p {
   font-size: 42px;
   height: 90px;
   transition: background .2s;
-}
-
-.current-project {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-  line-height: 34px;
-  padding: 50px;
-  word-spacing: 2px;
-  width: 100%;
-}
-
-.current-project > div {
-  align-items: flex-end;
-  background: none;
-  display: flex;
-  flex-direction: column;
-  height: 86%;
-  overflow: hidden;
-  width: 46%;
-}
-
-.current-project > div > h3 {
-  font-family: 'Oswald';
-  font-size: 70px;
-  margin-top: 12px;
-}
-
-.current-project > div > p {
-  background: none;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 0px;
-  text-align: right;
-}
-
-.current-project > div > img {
-  height: 100%;
 }

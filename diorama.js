@@ -1,28 +1,28 @@
 window.onload = initialize
 
 function initialize () {
-    window.sidescroll = 0
+    window.sidescroll = -1960
     onkeydown = function (event) {
         switch (event.keyCode) {
-          case 37: // left
-              if (window.sidescroll > -1960) {
-                  window.sidescroll -= 20
-              }
-              break
-          case 39: // right
-              if (window.sidescroll < 1740) {
-                  window.sidescroll += 20
-              }
-              break
-          case 65: // a
-              window.sidescroll = -1960
-              break
-          case 68: // d
-              window.sidescroll = 1760
-              break
-          case 83: // d
-              window.sidescroll = 0
-              break
+            case 37: // left
+                if (window.sidescroll > -1960) {
+                    window.sidescroll -= 20
+                }
+                break
+            case 39: // right
+                if (window.sidescroll < 1740) {
+                    window.sidescroll += 20
+                }
+                break
+            case 65: // a
+                window.sidescroll = -1960
+                break
+            case 68: // d
+                window.sidescroll = 1760
+                break
+            case 83: // d
+                window.sidescroll = 0
+                break
         }
     }
 
@@ -134,14 +134,24 @@ function initialize () {
     diorama.draw()
     window.addEventListener("scroll", diorama.draw.bind(diorama))
     window.addEventListener("keydown", diorama.draw.bind(diorama))
+
+    standardizePageSize('page-content')
+}
+
+standardizePageSize = className => {
+    let page = document.getElementsByClassName(className)[0]
+    let fullHeight = document.body.getBoundingClientRect().height
+    let windowHeight = window.innerHeight
+
+    console.log(page)
 }
 
 function Diorama (obj) {
-  this.cutouts = obj.cutouts.sort(function (x, y) {
-    return x.anchor.z > y.anchor.z ? -1 : 1
-  })
-  this.canvas = document.getElementById(obj.canvasId)
-  this.ctx = this.canvas.getContext('2d')
+    this.cutouts = obj.cutouts.sort(function (x, y) {
+        return x.anchor.z > y.anchor.z ? -1 : 1
+    })
+    this.canvas = document.getElementById(obj.canvasId)
+    this.ctx = this.canvas.getContext('2d')
 }
 
 Diorama.prototype.draw = function () {
@@ -174,9 +184,9 @@ function Cutout (obj) {
     this.anchor = obj.anchor
     this.name = obj.name
     this.image = document.createElement('img')
-    this.image.onload = function () {
-        diorama.draw()
-    }.bind(this)
+    // this.image.onload = function () {
+    //     diorama.draw()
+    // }.bind(this)
     this.image.src = obj.imageSource
     this.width = obj.width
     this.height = obj.height
